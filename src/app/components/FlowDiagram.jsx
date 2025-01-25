@@ -51,8 +51,8 @@ const FlowDiagram = ({ currentStep, onStepClick }) => {
             href="/assets/moneybag.svg"
             x="-10"
             y="-10"
-            width="20"
-            height="20"
+            width="30"
+            height="30"
           ></image>
         </g>
       </svg>

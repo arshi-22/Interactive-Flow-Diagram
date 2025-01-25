@@ -181,13 +181,8 @@ body {
 .text-black {
   color: #000000;
 }
-@media (max-width: 770)  {
-  .container {
-    flex-direction: column;
-  }
-}
+
 @media (max-width: 430) {
-  
   .step-card {
     max-width: 200px;
   }
@@ -209,5 +204,11 @@ body {
   .button-4 {
     bottom: 25%;
     left: 17%;
+  }
+}
+
+@media (max-width: 770) {
+  .container {
+    flex-direction: column;
   }
 }

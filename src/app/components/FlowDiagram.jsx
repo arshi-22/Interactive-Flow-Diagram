@@ -1,20 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 const FlowDiagram = ({ currentStep, onStepClick }) => {
   gsap.registerPlugin(MotionPathPlugin);
 
+  const moneyBagRef = useRef(null);
+  const stepPositions = [
+    { start: 0, stop: 0 }, 
+    { start: 220, stop: 100 }, 
+    { start: 180, stop: 200 }, 
+    { start: 80, stop: 300 }, 
+  ];
+
   useEffect(() => {
-    gsap.to(".highlight image", {
-      motionPath: {
-        path: "#path",
-      },
-      duration: 10,
-      repeat: -1,
-      ease: "none",
-    });
-  }, [currentStep]);
+    if (moneyBagRef.current) {
+      gsap.to(moneyBagRef.current, {
+        motionPath: {
+          path: "#path",
+          align: "#path",
+          autoRotate: false,
+          alignOrigin: [0.5, 0.5],
+          start: (currentStep===1?0:currentStep-(currentStep===2?2:1.7)) / 4,
+          end: ((currentStep===4?(currentStep-.7):currentStep-1) * .3),
+        },
+        duration: 2,
+        ease: "power2.inOut",
+      });
+    }
+  }, [currentStep]); 
 
   return (
     <div className="flow-diagram-container">
@@ -48,10 +62,11 @@ const FlowDiagram = ({ currentStep, onStepClick }) => {
         <g className="highlight">
           <circle r="10" cx="50" cy="50"></circle>
           <image
+            ref={moneyBagRef}
             href="/assets/moneybag.svg"
             x="-10"
             y="-10"
-            width="30"
+            width="25"
             height="30"
           ></image>
         </g>
@@ -59,7 +74,7 @@ const FlowDiagram = ({ currentStep, onStepClick }) => {
       {[1, 2, 3, 4].map((step) => (
         <div className={`button-container button-${step}`} key={step}>
           <button
-            className={`flow-button ${currentStep === step ? "active" : ""}`}
+            className={`flow-button ${currentStep === step ? (step === 1 ? "active active-primary" : "active") : ""}`}
             onClick={() => {
               onStepClick(step);
             }}

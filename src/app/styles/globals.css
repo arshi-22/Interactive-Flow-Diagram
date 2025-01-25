@@ -17,9 +17,19 @@ body {
   padding: 1rem;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
 .content {
   display: flex;
   align-items: flex-end;
+  width: 100%;
+  height: auto;
+  justify-content: flex-end;
 }
 
 .step-card {
@@ -37,12 +47,20 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 500px;
-  height: 250px;
+  height: auto;
+}
+
+@media (max-width: 780px) {
+  .step-card {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .step-card h2 {
   text-align: left;
   color: white;
+  font-size: 20px;
 }
 .step-card p {
   text-align: center;
@@ -101,9 +119,7 @@ body {
 
 .flow-diagram-container {
   position: relative;
-  padding: 0.5rem;
   width: 100%;
-  max-width: 400px;
   height: 450px;
   display: flex;
   justify-content: center;
@@ -112,18 +128,12 @@ body {
   border-radius: 1rem;
 }
 
-@media (min-width: 768px) {
-  .flow-diagram-container {
-    width: 500px;
-  }
-}
-
 .flow-diagram-svg {
   width: 250px;
   height: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .flow-diagram-svg {
     width: 350px;
   }
@@ -146,12 +156,12 @@ body {
 
 .button-3 {
   top: 57%;
-  left: 35%;
+  left: 33%;
 }
 
 .button-4 {
   bottom: 17%;
-  left: 12%;
+  left: 15%;
 }
 
 .flow-button {
@@ -174,41 +184,53 @@ body {
 }
 
 .active {
+  animation: delayedBg 0.1s forwards 1.5s;
+}
+
+@keyframes delayedBg {
+  100% {
+    background: #e31662;
+    color: #ffffff;
+  }
+}
+
+.active-primary {
   background: #e31662;
   color: #ffffff;
 }
-
 .text-black {
   color: #000000;
 }
 
-@media (max-width: 430) {
+@media (max-width: 768px) {
   .step-card {
-    max-width: 200px;
+    width: 100%;
+    height: auto;
   }
+
   .button-1 {
-    top: 30%;
-    left: 3rem;
+    top: 29%;
+    left: 20%;
   }
 
   .button-2 {
-    top: 43%;
-    left: 70%;
+    top: 42%;
+    left: 69%;
   }
 
   .button-3 {
     top: 55%;
-    left: 35%;
+    left: 36%;
   }
 
   .button-4 {
     bottom: 25%;
-    left: 17%;
+    left: 20%;
   }
 }
-
-@media (max-width: 770) {
+@media (max-width: 770px) {
   .container {
     flex-direction: column;
+    gap: 3rem;
   }
 }

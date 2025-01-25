@@ -181,11 +181,13 @@ body {
 .text-black {
   color: #000000;
 }
-
-@media (max-width: 430) {
+@media (max-width: 770)  {
   .container {
     flex-direction: column;
   }
+}
+@media (max-width: 430) {
+  
   .step-card {
     max-width: 200px;
   }

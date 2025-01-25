@@ -1,0 +1,211 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  overflow: scroll;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  padding: 1rem;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end;
+}
+
+.step-card {
+  padding: 1.5rem;
+  background: linear-gradient(
+    45deg,
+    hsl(229, 76%, 59%, 1),
+    hsl(258, 41%, 43%, 1),
+    hsl(338, 82%, 49%, 1)
+  );
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 250px;
+}
+
+.step-card h2 {
+  text-align: left;
+  color: white;
+}
+.step-card p {
+  text-align: center;
+  align-items: center;
+  font-size: medium;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(194, 193, 193);
+}
+
+.card-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: self-end;
+  background: white;
+  border-radius: 50%;
+  color: #4e4b4b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow-button:hover {
+  transform: scale(1.08);
+}
+
+.arrow-button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.restart-button {
+  padding: 0.5rem;
+  background: #ffffff;
+  color: rgb(104, 101, 101);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restart-button:hover {
+  transform: scale(1.05);
+}
+
+.flow-diagram-container {
+  position: relative;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border: 1px solid rgb(134, 134, 221);
+  border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+  .flow-diagram-container {
+    width: 500px;
+  }
+}
+
+.flow-diagram-svg {
+  width: 250px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .flow-diagram-svg {
+    width: 350px;
+  }
+}
+
+.button-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.button-1 {
+  top: 22%;
+  left: 3rem;
+}
+
+.button-2 {
+  top: 40%;
+  left: 70%;
+}
+
+.button-3 {
+  top: 57%;
+  left: 35%;
+}
+
+.button-4 {
+  bottom: 17%;
+  left: 12%;
+}
+
+.flow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 1rem;
+  height: 2rem;
+  padding: 1rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 2px solid #e31662;
+  cursor: pointer;
+}
+
+.flow-button:hover {
+  transform: scale(1.1);
+}
+
+.active {
+  background: #e31662;
+  color: #ffffff;
+}
+
+.text-black {
+  color: #000000;
+}
+
+@media (max-width: 430) {
+  .container {
+    flex-direction: column;
+  }
+  .step-card {
+    max-width: 200px;
+  }
+  .button-1 {
+    top: 30%;
+    left: 3rem;
+  }
+
+  .button-2 {
+    top: 43%;
+    left: 70%;
+  }
+
+  .button-3 {
+    top: 55%;
+    left: 35%;
+  }
+
+  .button-4 {
+    bottom: 25%;
+    left: 17%;
+  }
+}
